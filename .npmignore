@@ -12,5 +12,4 @@ npm-debug.log
 build/
 config/
 node_modules/
-static/
 index.html

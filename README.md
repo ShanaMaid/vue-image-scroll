@@ -1,37 +1,69 @@
-## Welcome to GitHub Pages
+# vue-slider-163music
+[![build](https://img.shields.io/wercker/ci/wercker/docs.svg)](https://github.com/ShanaMaid/vue-slider-163music) 
+[![build](https://img.shields.io/badge/npm-1.0.4-blue.svg)](https://github.com/ShanaMaid/vue-slider-163music) 
+[![build](https://img.shields.io/npm/l/express.svg)](https://github.com/ShanaMaid/vue-slider-163music)
 
-You can use the [editor on GitHub](https://github.com/ShanaMaid/vue-slider-163music/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+一个模仿网易云音乐的vue图片滚动该插件
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+[Live Demos](http://blog.shanamaid.top/vue-slider-163music/examlple)
 
-### Markdown
+[Documention](http://blog.shanamaid.top/vue-slider-163music/examlple)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+based on vue 2.0
 
-```markdown
-Syntax highlighted code block
+## Install
+```
+npm install vue-163music-slider 
+```
+<template>
+  <div>
+    <slider v-bind="setting">
+  </div>
+</template>
 
-# Header 1
-## Header 2
-### Header 3
+<script>
+import slider from 'vue-slider-163music';
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+export default {
+  components: {
+    slider
+  },
+  data: function() {
+    return {
+      setting: {
+        imgSrc: ['1.jpg', '2.jpg', '3.jpg']
+      }
+    }
+  }
+}
+</script>          
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Usage
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ShanaMaid/vue-slider-163music/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Update
+- finish basics
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Opitions
+### Props
+| Props     | Type    | Default | Description |
+|-----------|---------|---------|-------------|
+|styleObject| Object  | {width:'750',height:'240'}|scroll box style,please use lower camel case, eg: background-color => backgroundColor|
+|imgSrc     | Array   | null    | imgae source path, length >= 3|
+|interval   | Integer | 2000    | unit: ms, rolling interval |
+|imgStyle   | Object  | null    | image style, the same as `styleObject`  |
+|autoRoll   | Boolean | true    |  `true` or `false` |
+|direction  | String  | left    | scroll direction, `left` or `right` |
+
+
+## To do
+- [x] Basics
+- [ ] add tag for image
+
+more!!
+
+## License
+
+[MIT](https://github.com/ShanaMaid/vue-slider-163music/blob/master/LICENSE)

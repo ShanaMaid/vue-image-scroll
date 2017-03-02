@@ -1,22 +1,47 @@
 <template>
     <ul class="slider" :style="styleObject">
-            <li  v-for="(item,index) in imgSrc" :class="[move[index]]">
-                <img :src="item" :style="imgStyle"   @click="target(index)">
-            </li>
-            <li  class="button">
-                <em  v-for="(item,index) in imgSrc" @click="target(index)" :class="[move[index]]"></em>
-            </li>
-            <li class="control">
-                <em @click="prePic"></em>
-                <em @click="nextPic"></em>
-            </li>
+        <li  v-for="(item,index) in imgSrc" :class="[move[index]]">
+            <img :src="item" :style="imgStyle"   @click="target(index)">
+        </li>
+        <li  class="button">
+            <em  v-for="(item,index) in imgSrc" @click="target(index)" :class="[move[index]]"></em>
+        </li>
+        <li class="control">
+            <em @click="prePic"></em>
+            <em @click="nextPic"></em>
+        </li>
     </ul>
 </template>
 <script>
-import 'normalize.css'
 export default{
   name: 'slider',
-  props: ['styleObject', 'imgSrc', 'interval'],
+  props: {
+    styleObject: {
+      default: {
+        width: '750',
+        height: '250'
+      }
+    },
+    imgSrc: {
+      require: true,
+      type: Array,
+      validator: function (value) {
+        return value.length >= 3
+      }
+    },
+    interval: {
+      default: 2000
+    },
+    imgStyle: {
+      default: {}
+    },
+    autoRoll: {
+      default: true
+    },
+    direction: {
+      default: 'left'
+    }
+  },
   mounted: function () {
     const width = parseInt(this.styleObject.width)
     const height = parseInt(this.styleObject.height)
@@ -29,11 +54,17 @@ export default{
       this.move[i] = 'wait'
     }
 
-    setInterval(this.nextPic, this.interval)
+    if (this.autoRoll) {
+      if (this.direction === 'left') {
+        setInterval(this.nextPic, this.interval)
+      }
+      else {
+        setInterval(this.prePic, this.interval)
+      }
+    }
   },
   data () {
     return {
-      imgStyle: {},
       move: ['left', 'center', 'right']
     }
   },
@@ -60,6 +91,10 @@ export default{
 }
 </script>
 <style scoped>
+*{
+  margin: 0;
+  padding: 0;
+}
 .slider{
     perspective:1000px;
     position: relative;
