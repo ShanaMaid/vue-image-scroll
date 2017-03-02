@@ -3,7 +3,7 @@
 [![build](https://img.shields.io/badge/npm-1.0.4-blue.svg)](https://github.com/ShanaMaid/vue-slider-163music) 
 [![build](https://img.shields.io/npm/l/express.svg)](https://github.com/ShanaMaid/vue-slider-163music)
 
-一个模仿网易云音乐的vue图片滚动该插件
+一个模仿网易云音乐的vue图片滚动插件
 
 [Live Demos](http://blog.shanamaid.top/vue-slider-163music/example)
 
@@ -14,6 +14,18 @@ based on vue 2.0
 ## Install
 ```
 npm install vue-163music-slider 
+```
+
+### Local
+```
+git clone  https://github.com/ShanaMaid/vue-slider-163music.git
+
+#安装依赖
+npm install 
+
+#启动
+npm run dev
+
 ```
 
 

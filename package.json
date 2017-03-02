@@ -1,13 +1,15 @@
 {
   "name": "vue-slider-163music",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A Vue components about slider from 163-music",
   "author": "ShanaMaid <uestczeng@gmail.com>",
+  "main": "./src/components/Slider.vue",
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js"
   },
   "dependencies": {
+    "babel-cli": "^6.23.0",
     "vue": "^2.2.1"
   },
   "devDependencies": {

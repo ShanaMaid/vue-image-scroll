@@ -54,13 +54,7 @@
        height: '250'
     }, <span class="gray">//滚动框样式 宽度默认750px 高度默认250px 其余样式小驼峰命名
         background-color => backgroundColor</span>
-    <span class="keyword">imgSrc</span>: [
-     'static/img/1-1.jpg', 
-     'static/img/1-2.jpg', 
-     'static/img/1-3.jpg', 
-     'static/img/1-4.jpg', 
-     'static/img/1-5.jpg'
-    ],
+    <span class="keyword">imgSrc</span>: null, <span class="gray">//图片资源数组</span>
     <span class="keyword">interval</span>:2000, <span class="gray">//滚动间隔,单位ms,默认2000</span>
     <span class="keyword">imgStyle</span>:null,<span class="gray">//图片样式，宽度和高度不可设置，样式名字小驼峰命名</span>
     <span class="keyword">autoRoll</span>:true, <span class="gray">//自动滚动</span>
