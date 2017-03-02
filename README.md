@@ -5,9 +5,9 @@
 
 一个模仿网易云音乐的vue图片滚动该插件
 
-[Live Demos](http://blog.shanamaid.top/vue-slider-163music/examlple)
+[Live Demos](http://blog.shanamaid.top/vue-slider-163music/example)
 
-[Documention](http://blog.shanamaid.top/vue-slider-163music/examlple)
+[Documention](http://blog.shanamaid.top/vue-slider-163music/example)
 
 based on vue 2.0
 
