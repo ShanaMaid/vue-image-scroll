@@ -15,6 +15,10 @@ based on vue 2.0
 ```
 npm install vue-163music-slider 
 ```
+
+
+## Usage
+```
 <template>
   <div>
     <slider v-bind="setting">
@@ -39,7 +43,7 @@ export default {
 </script>          
 ```
 
-## Usage
+
 
 
 ## Update
