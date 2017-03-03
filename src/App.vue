@@ -36,7 +36,7 @@
       data: function() {
         return {
           setting: {
-            imgSrc: ['1.jpg', '2.jpg', '3.jpg']
+            image: ['1.jpg', '2.jpg', '3.jpg']
           }
         }
       }
@@ -54,7 +54,7 @@
        height: '250'
     }, <span class="gray">//滚动框样式 宽度默认750px 高度默认250px 其余样式小驼峰命名
         background-color => backgroundColor</span>
-    <span class="keyword">imgSrc</span>: null, <span class="gray">//图片资源数组</span>
+    <span class="keyword">image</span>: null, <span class="gray">//图片数组</span>
     <span class="keyword">interval</span>:2000, <span class="gray">//滚动间隔,单位ms,默认2000</span>
     <span class="keyword">imgStyle</span>:null,<span class="gray">//图片样式，宽度和高度不可设置，样式名字小驼峰命名</span>
     <span class="keyword">autoRoll</span>:true, <span class="gray">//自动滚动</span>
@@ -71,7 +71,7 @@
         <div class="code">
           <pre>
   <span class="white">{</span>
-    <span class="keyword">imgSrc</span>: [
+    <span class="keyword">image</span>: [
      'static/img/1-1.jpg', 
      'static/img/1-2.jpg', 
      'static/img/1-3.jpg', 
@@ -95,12 +95,36 @@
       backgroundColor: 'rgba(0,225,226,0.2)',
       borderRadius: '20px'
     },
-    <span class="keyword">imgSrc</span>: [
-    'static/img/1-1.jpg', 
-    'static/img/1-2.jpg', 
-    'static/img/1-3.jpg', 
-    'static/img/1-4.jpg', 
-    'static/img/1-5.jpg'],
+    <span class="keyword">image</span>: [
+        {
+          src: 'static/img/1-1.jpg',
+          tagName: '我是标签1',  <span class="gray">//标签内容</span>
+          tagStyle: {           <span class="gray">//标签样式</span>
+            backgroundColor: 'blue',  
+          }
+        },
+        {
+          src: 'static/img/1-2.jpg',
+          tagName: '我是标签2',
+          tagStyle: {
+            backgroundColor: 'greeen',
+            color: 'black',
+            fontSize: '20px'
+          }
+        },
+        {
+          src: 'static/img/1-3.jpg',
+          tagName: '我是标签2'
+        },
+        {
+          src: 'static/img/1-4.jpg',
+          tagName: '我是标签4'
+        },
+        {
+          src: 'static/img/1-5.jpg',
+          tagName: '我是标签5'
+        },
+        ],
     interval: 1000,
     <span class="keyword">imgStyle</span>: {
       borderRadius: '20px'
@@ -122,7 +146,7 @@
       width: '250',
       height: '150'
     },
-    <span class="keyword">imgSrc</span>: [
+    <span class="keyword">image</span>: [
     'static/img/1-1.jpg', 
     'static/img/1-2.jpg', 
     'static/img/1-3.jpg', 
@@ -152,7 +176,13 @@ export default {
   data () {
     return {
       setting: {
-        imgSrc: ['static/img/1-1.jpg', 'static/img/1-2.jpg', 'static/img/1-3.jpg', 'static/img/1-4.jpg', 'static/img/1-5.jpg']
+        image: [
+          'static/img/1-1.jpg',
+          'static/img/1-2.jpg', 
+          'static/img/1-3.jpg', 
+          'static/img/1-4.jpg', 
+          'static/img/1-5.jpg'
+        ],
       },
       setting1: {
         styleObject: {
@@ -161,7 +191,36 @@ export default {
           backgroundColor: 'rgba(0,225,226,0.2)',
           borderRadius: '20px'
         },
-        imgSrc: ['static/img/1-1.jpg', 'static/img/1-2.jpg', 'static/img/1-3.jpg', 'static/img/1-4.jpg', 'static/img/1-5.jpg'],
+        image: [
+        {
+          src: 'static/img/1-1.jpg',
+          tagName: '我是标签1',
+          tagStyle: {
+            backgroundColor: 'blue',
+          }
+        },
+        {
+          src: 'static/img/1-2.jpg',
+          tagName: '我是标签2',
+          tagStyle: {
+            backgroundColor: 'greeen',
+            color: 'black',
+            fontSize: '20px'
+          }
+        },
+        {
+          src: 'static/img/1-3.jpg',
+          tagName: '我是标签2'
+        },
+        {
+          src: 'static/img/1-4.jpg',
+          tagName: '我是标签4'
+        },
+        {
+          src: 'static/img/1-5.jpg',
+          tagName: '我是标签5'
+        },
+        ],
         interval: 1000,
         imgStyle: {
           borderRadius: '20px'
@@ -174,7 +233,13 @@ export default {
           width: '250',
           height: '150',
         },
-        imgSrc: ['static/img/1-1.jpg', 'static/img/1-2.jpg', 'static/img/1-3.jpg', 'static/img/1-4.jpg', 'static/img/1-5.jpg'],
+        image: [
+          'static/img/1-1.jpg',
+          'static/img/1-2.jpg', 
+          'static/img/1-3.jpg', 
+          'static/img/1-4.jpg', 
+          'static/img/1-5.jpg'
+        ],
         imgStyle: {
           borderRadius: '20px'
         },

@@ -1,10 +1,17 @@
 <template>
     <ul class="slider" :style="styleObject">
-        <li  v-for="(item,index) in imgSrc" :class="[move[index]]">
+        <li  v-for="(item,index) in image" :class="[move[index]]">
+          <template v-if="typeof item === 'object'">
+            <img :src="item.src" :style="imgStyle"   @click="target(index)">
+            <span :class="{tag:item.tagName}" :style="item.tagStyle">{{item.tagName}}</span>
+          </template>
+          <template v-if="typeof item === 'string'">
             <img :src="item" :style="imgStyle"   @click="target(index)">
+          </template>
+            
         </li>
         <li  class="button">
-            <em  v-for="(item,index) in imgSrc" @click="target(index)" :class="[move[index]]"></em>
+            <em  v-for="(item,index) in image" @click="target(index)" :class="[move[index]]"></em>
         </li>
         <li class="control">
             <em @click="prePic"></em>
@@ -22,7 +29,7 @@ export default{
         height: '250'
       }
     },
-    imgSrc: {
+    image: {
       require: true,
       type: Array,
       validator: function (value) {
@@ -50,7 +57,7 @@ export default{
     this.styleObject.width += 'px'
     this.styleObject.height += 'px'
 
-    for (let i = 3; i < this.imgSrc.length; i++) {
+    for (let i = 3; i < this.image.length; i++) {
       this.move[i] = 'wait'
     }
 
@@ -183,6 +190,19 @@ li.wait{
 
 em.center{
   background-color: rgb(198,47,47);
+}
+
+.tag{
+  display: inline-block;
+  padding: 5px;
+  background-color: rgb(198,47,47);
+  position: absolute;
+  right: 0px;
+  bottom: 15px;
+  border-top-left-radius: 10px;
+  font-size: 0.5rem;
+  border-bottom-left-radius: 10px;
+  color: white;
 }
 
 </style>
