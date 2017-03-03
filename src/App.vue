@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div class="header">
-        vue-slider-163music<br>
-        <a href="https://github.com/ShanaMaid/vue-slider-163music" class="btn">View on GitHub</a>
+        vue-image-scroll<br>
+        <a href="https://github.com/ShanaMaid/vue-image-scroll" class="btn">View on GitHub</a>
     </div>
     
 
@@ -13,7 +13,7 @@
         <h2>Installation(安装)</h2>
         <div class="code white">
             <br>
-            &nbsp&nbsp&nbsp npm install vue-163music-slider
+            &nbsp&nbsp&nbsp npm install vue-image-scroll
             <br><br>
         </div>
         <br>
@@ -27,7 +27,7 @@
     &lt;/template>
 
     &lt;script>
-    import slider from 'vue-slider-163music';
+    import slider from 'vue-image-scroll';
 
     export default {
       components: {

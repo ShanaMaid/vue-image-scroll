@@ -1,24 +1,24 @@
-# vue-slider-163music
-[![build](https://img.shields.io/wercker/ci/wercker/docs.svg)](https://github.com/ShanaMaid/vue-slider-163music) 
-[![build](https://img.shields.io/badge/npm-1.0.6-blue.svg)](https://github.com/ShanaMaid/vue-slider-163music) 
-[![build](https://img.shields.io/npm/l/express.svg)](https://github.com/ShanaMaid/vue-slider-163music)
+# vue-image-scroll
+[![build](https://img.shields.io/wercker/ci/wercker/docs.svg)](https://github.com/ShanaMaid/vue-image-scroll) 
+[![build](https://img.shields.io/badge/npm-1.0.0-blue.svg)](https://github.com/ShanaMaid/vue-image-scroll) 
+[![build](https://img.shields.io/npm/l/express.svg)](https://github.com/ShanaMaid/vue-image-scroll)
 
 一个模仿网易云音乐的vue图片滚动插件
 
-[Live Demos](http://blog.shanamaid.top/vue-slider-163music/example)
+[Live Demos](http://blog.shanamaid.top/vue-image-scroll/example)
 
-[Documention](http://blog.shanamaid.top/vue-slider-163music/example)
+[Documention](http://blog.shanamaid.top/vue-image-scroll/example)
 
 based on vue 2.0
 
 ## Install
 ```
-npm install vue-163music-slider 
+npm install vue-image-scroll 
 ```
 
 ### Local
 ```
-git clone  https://github.com/ShanaMaid/vue-slider-163music.git
+git clone  https://github.com/ShanaMaid/vue-image-scroll.git
 
 #安装依赖
 npm install 
@@ -38,7 +38,7 @@ npm run dev
 </template>
 
 <script>
-import slider from 'vue-slider-163music';
+import slider from 'vue-image-scroll';
 
 export default {
   components: {
@@ -82,4 +82,4 @@ more!!
 
 ## License
 
-[MIT](https://github.com/ShanaMaid/vue-slider-163music/blob/master/LICENSE)
+[MIT](https://github.com/ShanaMaid/vue-image-scroll/blob/master/LICENSE)
