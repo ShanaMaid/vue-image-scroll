@@ -85,7 +85,7 @@ export default{
       this.move.push(temp)
     },
     target: function (pos) {
-      const num = this.imgSrc.length
+      const num = this.image.length
       for (let i = 0; i < num; i++) {
         this.move[i] = 'wait'
       }
