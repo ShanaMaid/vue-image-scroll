@@ -47,7 +47,7 @@ export default {
   data: function() {
     return {
       setting: {
-        imgSrc: ['1.jpg', '2.jpg', '3.jpg']
+        image: ['1.jpg', '2.jpg', '3.jpg']
       }
     }
   }
