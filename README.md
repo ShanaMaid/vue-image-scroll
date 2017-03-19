@@ -1,6 +1,6 @@
 # vue-image-scroll
 [![build](https://img.shields.io/wercker/ci/wercker/docs.svg)](https://github.com/ShanaMaid/vue-image-scroll) 
-[![build](https://img.shields.io/badge/npm-1.0.0-blue.svg)](https://github.com/ShanaMaid/vue-image-scroll) 
+[![build](https://img.shields.io/badge/npm-1.0.2-blue.svg)](https://github.com/ShanaMaid/vue-image-scroll) 
 [![build](https://img.shields.io/npm/l/express.svg)](https://github.com/ShanaMaid/vue-image-scroll)
 
 一个模仿网易云音乐的vue图片滚动插件
