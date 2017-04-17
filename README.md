@@ -3,6 +3,8 @@
 [![build](https://img.shields.io/badge/npm-1.0.2-blue.svg)](https://github.com/ShanaMaid/vue-image-scroll) 
 [![build](https://img.shields.io/npm/l/express.svg)](https://github.com/ShanaMaid/vue-image-scroll)
 [![download](https://img.shields.io/npm/dt/vue-image-scroll.svg?style=flat-square)](https://www.npmjs.com/package/vue-image-scroll)
+
+
 一个模仿网易云音乐的vue图片滚动插件
 
 [Live Demos](http://blog.shanamaid.top/vue-image-scroll/example)
