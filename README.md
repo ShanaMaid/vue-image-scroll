@@ -5,6 +5,8 @@
 [![download](https://img.shields.io/npm/dt/vue-image-scroll.svg?style=flat-square)](https://www.npmjs.com/package/vue-image-scroll)
 
 
+[![NPM](https://nodei.co/npm/vue-image-scroll.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vue-image-scroll/)
+
 一个模仿网易云音乐的vue图片滚动插件
 
 [Live Demos](http://blog.shanamaid.top/vue-image-scroll/example)
