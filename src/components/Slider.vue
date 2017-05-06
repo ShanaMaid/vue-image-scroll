@@ -1,23 +1,37 @@
-<template>
-    <ul class="slider" :style="styleObject">
-        <li  v-for="(item,index) in image" :class="[move[index]]">
-          <template v-if="typeof item === 'object'">
-            <img :src="item.src" :style="imgStyle"   @click="target(index)">
-            <span :class="{tag:item.tagName}" :style="item.tagStyle">{{item.tagName}}</span>
-          </template>
-          <template v-if="typeof item === 'string'">
-            <img :src="item" :style="imgStyle"   @click="target(index)">
-          </template>
-            
-        </li>
-        <li  class="button">
-            <em  v-for="(item,index) in image" @click="target(index)" :class="[move[index]]"></em>
-        </li>
-        <li class="control">
-            <em @click="prePic"></em>
-            <em @click="nextPic"></em>
-        </li>
-    </ul>
+<template lang="pug">
+    ul.slider(
+      :style="styleObject",
+      @touchstart="handleDown",
+      @mousedown="handleDown",
+      @touchmove="handleMove",
+      @mousemove="handleMove",
+      @touchend="handleUp",
+      @mouseup="handleUp")
+        li(v-for="(item,index) in image", :class="[move[index]]")
+          template(v-if="typeof item === 'object'")
+            img(
+              :src="item.src",
+              :style="imgStyle",
+              @click="target(index)")
+            span(:class="{tag:item.tagName}", :style="item.tagStyle")
+              | {{item.tagName}}
+          template(v-if="typeof item === 'string'")
+            img(
+              :src="item",
+              :style="imgStyle",
+              @click="target(index)")
+            em(
+              v-for="(item,index) in image",
+              @click="target(index)",
+              :class="[move[index]]")
+        li.button
+          em(
+            v-for="(item,index) in image",
+            @click="target(index)",
+            :class="[move[index]]")
+        li.control
+          em(@click="prePic")
+          em(@click="nextPic")
 </template>
 <script>
 export default{
@@ -49,51 +63,82 @@ export default{
       default: 'left'
     }
   },
-  mounted: function () {
-    const width = parseInt(this.styleObject.width)
-    const height = parseInt(this.styleObject.height)
-    this.imgStyle.width = width * 0.7 + 'px'
-    this.imgStyle.height = height * 0.9 + 'px'
-    this.styleObject.width += 'px'
-    this.styleObject.height += 'px'
-
-    for (let i = 3; i < this.image.length; i++) {
-      this.move[i] = 'wait'
-    }
-
-    if (this.autoRoll) {
-      if (this.direction === 'left') {
-        setInterval(this.nextPic, this.interval)
-      }
-      else {
-        setInterval(this.prePic, this.interval)
-      }
-    }
+  mounted() {
+    this.init();
   },
-  data () {
+  data() {
     return {
-      move: ['left', 'center', 'right']
+      move: ['left', 'center', 'right'],
+      isDown: false,
+      dragStartX: 0,
     }
   },
   methods: {
-    nextPic: function (event) {
-      let temp = this.move.pop()
-      this.move.unshift(temp)
+    init() {
+      const width = parseInt(this.styleObject.width);
+      const height = parseInt(this.styleObject.height);
+      this.imgStyle.width = width * 0.7 + 'px';
+      this.imgStyle.height = height * 0.9 + 'px';
+      this.styleObject.width += 'px';
+      this.styleObject.height += 'px';
+
+      for (let i = 3; i < this.image.length; i++) {
+        this.move[i] = 'wait';
+      }
+
+      if (this.autoRoll) this.setRoll();
     },
-    prePic: function (event) {
-      let temp = this.move.shift()
-      this.move.push(temp)
+    setRoll() {
+      if (this.direction === 'left') {
+        setInterval(this.nextPic, this.interval);
+      }
+      else {
+        setInterval(this.prePic, this.interval);
+      }
     },
-    target: function (pos) {
+    nextPic(event) {
+      let temp = this.move.pop();
+      this.move.unshift(temp);
+    },
+    prePic(event) {
+      let temp = this.move.shift();
+      this.move.push(temp);
+    },
+    target(pos) {
       const num = this.image.length
       for (let i = 0; i < num; i++) {
-        this.move[i] = 'wait'
+        this.move[i] = 'wait';
       }
-      this.move[pos] = 'center'
-      this.move[pos + 1 < num ? pos + 1 : 0] = 'right'
-      this.move[pos - 1 === -1 ? num - 1 : pos - 1] = 'left'
+      this.move[pos] = 'center';
+      this.move[pos + 1 < num ? pos + 1 : 0] = 'right';
+      this.move[pos - 1 === -1 ? num - 1 : pos - 1] = 'left';
       this.move = this.move.concat()
-    }
+    },
+    handleDown(e) {
+      if (!e.touches) e.preventDefault();
+      this.isDown = true;
+      this.dragStartX = ('ontouchstart' in window) ? e.touches[0].clientX : e.clientX;
+    },
+    handleMove(e) {
+      e.preventDefault();
+      if (!this.isDown) return;
+
+      const eventPosX = ('ontouchstart' in window) ? e.touches[0].clientX : e.clientX;
+      const deltaX = (this.dragStartX - eventPosX);
+
+      if (deltaX > 10) {
+        this.handleUp();
+        this.nextPic();
+      }
+      if (deltaX < -10) {
+        this.handleUp();
+        this.prePic();
+      }
+    },
+    handleUp() {
+      this.isDown = false;
+      this.dragOffset = 0;
+    },
   }
 }
 </script>
