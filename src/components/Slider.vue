@@ -24,12 +24,12 @@
               v-for="(item,index) in image",
               @click="target(index)",
               :class="[move[index]]")
-        li.button
+        li.button(v-if="showButton")
           em(
             v-for="(item,index) in image",
             @click="target(index)",
             :class="[move[index]]")
-        li.control
+        li.control(v-if="showControl")
           em(@click="handlePre")
           em(@click="handleNext")
 </template>
@@ -38,30 +38,44 @@ export default{
   name: 'slider',
   props: {
     styleObject: {
-      default: {
-        width: '750',
-        height: '250'
-      }
+      default() {
+        return {
+          width: '750',
+          height: '250',
+        };
+      },
     },
     image: {
       require: true,
       type: Array,
-      validator: function (value) {
-        return value.length >= 3
-      }
+      validator: value => value.length >= 3,
     },
     interval: {
-      default: 2000
+      type: Number,
+      default: 2000,
     },
     imgStyle: {
-      default: {}
+      type: Object,
+      default() {
+        return {};
+      },
     },
     autoRoll: {
-      default: true
+      type: Boolean,
+      default: true,
+    },
+    showButton: {
+      type: Boolean,
+      default: true,
+    },
+    showControl: {
+      type: Boolean,
+      default: true,
     },
     direction: {
-      default: 'left'
-    }
+      type: String,
+      default: 'left',
+    },
   },
   mounted() {
     this.init();
