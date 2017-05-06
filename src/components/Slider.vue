@@ -30,8 +30,8 @@
             @click="target(index)",
             :class="[move[index]]")
         li.control
-          em(@click="prePic")
-          em(@click="nextPic")
+          em(@click="handlePre")
+          em(@click="handleNext")
 </template>
 <script>
 export default{
@@ -71,6 +71,7 @@ export default{
       move: ['left', 'center', 'right'],
       isDown: false,
       dragStartX: 0,
+      timer: null,
     }
   },
   methods: {
@@ -90,10 +91,10 @@ export default{
     },
     setRoll() {
       if (this.direction === 'left') {
-        setInterval(this.nextPic, this.interval);
+        this.timer = setInterval(this.nextPic, this.interval);
       }
       else {
-        setInterval(this.prePic, this.interval);
+        this.timer = setInterval(this.prePic, this.interval);
       }
     },
     nextPic(event) {
@@ -105,14 +106,26 @@ export default{
       this.move.push(temp);
     },
     target(pos) {
-      const num = this.image.length
+      clearInterval(this.timer);
+      const num = this.image.length;
       for (let i = 0; i < num; i++) {
         this.move[i] = 'wait';
       }
       this.move[pos] = 'center';
       this.move[pos + 1 < num ? pos + 1 : 0] = 'right';
       this.move[pos - 1 === -1 ? num - 1 : pos - 1] = 'left';
-      this.move = this.move.concat()
+      this.move = this.move.concat();
+      this.setRoll();
+    },
+    handleNext() {
+      clearInterval(this.timer);
+      this.nextPic();
+      this.setRoll();
+    },
+    handlePre() {
+      clearInterval(this.timer);
+      this.prePic();
+      this.setRoll();
     },
     handleDown(e) {
       if (!e.touches) e.preventDefault();
@@ -126,6 +139,7 @@ export default{
       const eventPosX = ('ontouchstart' in window) ? e.touches[0].clientX : e.clientX;
       const deltaX = (this.dragStartX - eventPosX);
 
+      clearInterval(this.timer);
       if (deltaX > 10) {
         this.handleUp();
         this.nextPic();
@@ -134,6 +148,7 @@ export default{
         this.handleUp();
         this.prePic();
       }
+      this.setRoll();
     },
     handleUp() {
       this.isDown = false;
