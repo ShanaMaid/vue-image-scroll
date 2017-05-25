@@ -1,5 +1,4 @@
 # vue-image-scroll
-[![build](https://img.shields.io/wercker/ci/wercker/docs.svg)](https://github.com/ShanaMaid/vue-image-scroll) 
 [![build](https://img.shields.io/badge/npm-1.0.2-blue.svg)](https://github.com/ShanaMaid/vue-image-scroll) 
 [![build](https://img.shields.io/npm/l/express.svg)](https://github.com/ShanaMaid/vue-image-scroll)
 [![download](https://img.shields.io/npm/dt/vue-image-scroll.svg?style=flat-square)](https://www.npmjs.com/package/vue-image-scroll)
