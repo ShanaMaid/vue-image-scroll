@@ -1,9 +1,10 @@
+const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
-  entry: './src/package.js',
+  entry: path.resolve(__dirname, './src/package.js'),
   output: {
-    path: './lib/',
+    path: path.resolve(__dirname, './lib/'),
     filename: 'index.js',
     library: 'vue-slider-163music',
     libraryTarget: 'umd',
